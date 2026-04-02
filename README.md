@@ -1,73 +1,63 @@
-# React + TypeScript + Vite
+# Aura Context Assistant
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aura Context is a local, privacy-first, and intelligent desktop assistant for macOS. It gracefully runs in the background, capturing your active windows, tracking your productivity, and monitoring clipboard content. Using the power of local LLMs (via Ollama), it serves as a continuously-aware AI companion that can answer questions about anything you've seen or done recently on your computer.
 
-Currently, two official plugins are available:
+All context data is saved purely locally in a SQLite database, ensuring your privacy completely remains yours. No cloud uploads, no external APIs.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Download for macOS
 
-## React Compiler
+You can download the latest installer for macOS (Apple Silicon and Intel) from the releases page:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [⬇️ Download Aura Context (.dmg) for macOS](https://github.com/maheshsd/context-assistant/releases/latest)
 
-## Expanding the ESLint configuration
+> **Note:** Because the application is not signed with an Apple Developer Account, macOS Gatekeeper may show an "unidentified developer" warning. To safely open it, locate the app in Finder, right-click, and select **Open**.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Key Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 🧠 **Local AI Chat:** Securely converse with a local AI (powered by Ollama) that has historical context of your activity, effectively functioning as a "second brain".
+- 🗂️ **Productivity Intelligence:** Automatically categorizes all application/website activity into 10 contextual categories (Development, Communication, Research, etc.) to give you a productivity score.
+- 🕰️ **Context Timeline:** A rich, searchable timeline of your digital day, neatly organized with timestamps and app metadata.
+- 📊 **Insightful Dashboard:** Clear, elegant visual data representations outlining the time you've spent across different applications and categories.
+- 🔒 **100% Privacy Focused:** Everything runs locally. Your keyboard activity and context data never leave your machine.
+- 🎨 **Premium UI:** Gorgeous dark-mode themed user interface with glassmorphism, fluid animations, and a seamless developer experience.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Technology Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Frontend:** React, TypeScript, Vite
+- **Desktop Environment:** Electron
+- **Database Engine:** Local SQLite (`better-sqlite3`)
+- **AI Inference Engine:** Ollama (requires local installation)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 💻 Local Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+If you'd like to build and run the application from its source code:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/maheshsd/context-assistant.git
+   cd context-assistant
+   ```
+
+2. Install the necessary dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Ensure Ollama is running locally and has the required target model pulled (e.g., `llama3`):
+   ```bash
+   ollama pull llama3
+   ```
+
+4. Start the Vite development frontend and the Electron application concurrently:
+   ```bash
+   npm run dev
+   ```
+
+5. To bundle the app for production (creating the macOS `.dmg` and `.app` bundle):
+   ```bash
+   npm run build
+   ```
+
+## 📝 License
+
+This project is licensed under the MIT License.
