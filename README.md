@@ -1,5 +1,6 @@
 # Aura Context Assistant
 
+![Aura Context App Dashboard](assets/dashboard.png)
 Aura Context is a local, privacy-first, and intelligent desktop assistant for macOS. It gracefully runs in the background, capturing your active windows, tracking your productivity, and monitoring clipboard content. Using the power of local LLMs (via Ollama), it serves as a continuously-aware AI companion that can answer questions about anything you've seen or done recently on your computer.
 
 All context data is saved purely locally in a SQLite database, ensuring your privacy completely remains yours. No cloud uploads, no external APIs.
