@@ -1,0 +1,96 @@
+{
+  "name": "aura-context",
+  "productName": "Aura Context",
+  "version": "1.0.0",
+  "description": "Your private, local AI that understands your computer activity — 100% on-device.",
+  "author": "Aura",
+  "private": true,
+  "main": "dist-electron/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:dist": "vite build && electron-builder",
+    "build": "tsc -b && vite build && electron-builder",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "postinstall": "electron-builder install-app-deps",
+    "icon:gen": "node build/icon-gen.mjs"
+  },
+  "build": {
+    "appId": "com.aura.context",
+    "productName": "Aura Context",
+    "copyright": "Copyright © 2025 Aura",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "**/*.node",
+      "**/node_modules/better-sqlite3/**/*",
+      "**/node_modules/active-win/**/*",
+      "**/node_modules/uiohook-napi/**/*"
+    ],
+    "npmRebuild": true,
+    "mac": {
+      "target": [
+        { "target": "dmg", "arch": ["arm64", "x64"] }
+      ],
+      "icon": "build/icon.icns",
+      "category": "public.app-category.productivity",
+      "hardenedRuntime": false,
+      "identity": null,
+      "entitlements": null,
+      "entitlementsInherit": null,
+      "extendInfo": {
+        "NSAccessibilityUsageDescription": "Aura needs Accessibility access to detect which app is active.",
+        "NSAppleEventsUsageDescription": "Aura uses Apple Events to read active window titles."
+      }
+    },
+    "dmg": {
+      "title": "Install Aura Context",
+      "backgroundColor": "#09090b",
+      "window": { "width": 560, "height": 400 },
+      "contents": [
+        { "x": 140, "y": 220, "type": "file" },
+        { "x": 420, "y": 220, "type": "link", "path": "/Applications" }
+      ]
+    }
+  },
+  "dependencies": {
+    "active-win": "^8.2.1",
+    "better-sqlite3": "^12.8.0",
+    "lucide-react": "^1.6.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "recharts": "^3.8.1",
+    "uiohook-napi": "^1.5.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^24.12.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^41.0.4",
+    "electron-builder": "^26.8.1",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.57.2",
+    "vite": "^8.0.1",
+    "vite-plugin-electron": "^0.29.1",
+    "vite-plugin-electron-renderer": "^0.14.6"
+  }
+}
